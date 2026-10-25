@@ -1,0 +1,37 @@
+# Ember Atlas: API + web app + PostGIS.
+#   docker compose up --build                     # start
+#   docker compose run --rm api ember seed-demo   # load the SYNTHETIC demo world (no NASA key needed)
+# FIRMS_MAP_KEY is optional and read from .env (never commit .env).
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    environment:
+      POSTGRES_DB: ember
+      POSTGRES_USER: ember
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ember-local-only}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ember -d ember"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  api:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      EMBER_DATABASE_URL: postgresql://ember:${POSTGRES_PASSWORD:-ember-local-only}@db:5432/ember
+      FIRMS_MAP_KEY: ${FIRMS_MAP_KEY:-}
+      EMBER_FIRMS_CACHE: /app/data/firms_cache
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - ./artifacts:/app/artifacts
+      - firms_cache:/app/data/firms_cache
+
+volumes:
+  pgdata:
+  firms_cache:

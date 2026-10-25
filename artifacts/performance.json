@@ -1,0 +1,43 @@
+{
+  "measured_at": "2026-10-25T00:01:09Z",
+  "store": "sqlite",
+  "detections_in_dataset": 461894,
+  "machine": {
+    "python": "3.13.17",
+    "platform": "Linux-6.18.44-fc-v153-x86_64-with-glibc2.39",
+    "cpus": 2
+  },
+  "rows": [
+    {
+      "call": "summary weekly 13 years, 4 platforms",
+      "cold_s": 14.213,
+      "warm_s": 0.029
+    },
+    {
+      "call": "summary daily 1 year",
+      "cold_s": 1.853,
+      "warm_s": 0.013
+    },
+    {
+      "call": "map cells for one week",
+      "cold_s": 0.26,
+      "warm_s": 0.006
+    },
+    {
+      "call": "detections for one week (page 1)",
+      "cold_s": 0.458,
+      "warm_s": 0.414
+    },
+    {
+      "call": "harmonised series (calibration + 200 bootstrap)",
+      "cold_s": 27.294,
+      "warm_s": 0.015
+    },
+    {
+      "call": "anomalies one year",
+      "cold_s": 0.186,
+      "warm_s": 0.004
+    }
+  ],
+  "note": "Cold = first request in a fresh process, including loading the dataset into the in-memory frame cache on the first call."
+}

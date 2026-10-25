@@ -1,0 +1,14 @@
+# Exact versions the Ember Atlas test-suite was executed with in the build
+# sandbox (Python 3.13.17, Linux). FastAPI and psycopg were NOT available there.
+# Regenerate a full lock with: uv pip compile pyproject.toml --extra dev --extra postgis -o requirements.lock.txt
+numpy==2.5.3
+pandas==3.0.5
+scipy==1.18.1
+starlette==1.7.0
+uvicorn==0.54.0
+python-multipart==0.0.32
+pytest==9.1.1
+httpx==0.28.1
+scikit-learn==1.9.1
+matplotlib==3.11.2
+playwright==1.63.0

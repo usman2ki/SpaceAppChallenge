@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ember-atlas"
+version = "0.1.0"
+description = "Harmonised MODIS/VIIRS active-fire (hotspot) calendars with transparent cross-sensor calibration"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+# Versions below are the ones the test-suite was run with (see docs/reproducibility.md).
+# FastAPI could not be installed in the build sandbox; its lower bound is a minimum, not a tested pin.
+dependencies = [
+  "numpy>=2.0,<3",
+  "pandas>=3.0,<4",
+  "scipy>=1.13",
+  "starlette>=0.40",
+  "fastapi>=0.115",
+  "uvicorn>=0.30",
+  "python-multipart>=0.0.9",
+]
+
+[project.optional-dependencies]
+postgis = ["psycopg[binary]>=3.2"]
+dev = [
+  "pytest>=8",
+  "httpx>=0.27",
+  "scikit-learn>=1.5",   # reference implementations in GLM tests
+  "matplotlib>=3.8",     # reference point-in-polygon in geometry tests
+  "playwright>=1.45",    # browser smoke tests
+]
+
+[project.scripts]
+ember = "ember_atlas.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+ember_atlas = ["resources/*.toml", "resources/migrations/postgis/*.sql"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+  "browser: end-to-end browser smoke tests (need a built frontend and Playwright browsers)",
+  "postgis: tests that need EMBER_TEST_DATABASE_URL pointing at PostGIS",
+]
+
+[tool.ruff]
+line-length = 160
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B"]
+ignore = ["E501", "B905"]  # long user-facing strings; zip() lengths are aligned by construction

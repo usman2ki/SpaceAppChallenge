@@ -1,0 +1,67 @@
+# Ember Atlas analysis method configuration.
+# Every analysis output carries method_version and the SHA-256 of this file's
+# effective contents. Change method_version whenever a scientific default changes.
+
+method_version = "ember-method-1.0.0"
+
+[grid]
+# EASE-Grid 2.0 (EPSG:6933) square cells nested on the official M09 grid.
+# 18 km default: >= ~4x the largest MODIS fire-pixel dimension near scan edge
+# (~4.8 km along-scan), so footprint and geolocation differences between
+# 1 km MODIS and 375 m VIIRS pixels rarely move a fire across a cell boundary,
+# while still resolving landscape-scale fire regions. Sensitivity is evaluated
+# for 9/18/36/72 km (artifacts/sensitivity.json).
+default_km = 18
+allowed_km = [9, 18, 36, 72]
+
+[temporal]
+default_window = "week"   # "day" | "week"
+# day = UTC calendar day (FIRMS acq_date is UTC). week = 7-day bins anchored at
+# 1 January (bin 52 absorbs the last 1-2 days of the year).
+basis = "utc_day"
+
+[quality]
+# Quality-filtered counts. Raw counts are always kept alongside.
+min_confidence = "nominal"          # low | nominal | high
+exclude_fire_types = [1, 2, 3]      # volcano, static land source, offshore (standard products only)
+
+[coverage]
+# Window/AOI coverage classes from valid-observation data (only when available).
+observed_fraction = 0.8   # >= this share of nominal looks valid -> "observed"
+min_known_day_fraction = 1.0  # every day in the window needs coverage data, otherwise "unknown"
+
+[calibration]
+reference_platform = "Aqua"            # target scale: Aqua MODIS-equivalent detections
+default_source_platform = "Suomi-NPP"  # same ~13:30 local overpass as Aqua
+allowed_pairs = [["Aqua", "Suomi-NPP"], ["Aqua", "NOAA-20"], ["Aqua", "Terra"], ["Terra", "Suomi-NPP"]]
+window = "week"
+harmonic_orders = [0, 1, 2]            # seasonal Fourier order, selected by train-only blocked CV
+min_paired_units = 150                 # cell-weeks with >= 1 detection from either platform
+min_detections_per_platform = 500
+min_years = 3
+min_spatial_blocks = 4
+bootstrap_replicates = 200
+bootstrap_block_weeks = 4
+bootstrap_block_cells = 4              # spatial block edge, in analysis cells
+interval = 0.90
+seed = 20261025
+trend_alarm_per_year = 0.03            # |d log(ratio)/d year| above this (and significant) => drift warning
+
+[validation]
+temporal_buffer_weeks = 2
+spatial_buffer_cells = 1
+spatial_block_cells = 4
+n_spatial_folds = 4
+interval_coverage_min = 0.80
+interval_coverage_max = 0.97
+# The candidate must beat these baselines on held-out mean Poisson deviance of
+# AOI-week reference totals, in both temporal and spatial blocked validation.
+must_beat = ["raw_substitution", "global_ratio"]
+
+[anomaly]
+window = "week"
+min_baseline_years = 5
+neighbor_weeks = 1          # baseline pools same week-of-year +/- this many weeks
+fdr_q = 0.05                # Benjamini-Hochberg across all tested windows in the view
+min_baseline_mean = 0.5     # below this, excess tests are reported as "too sparse"
+peak_season_fraction = 0.5  # climatological peak season = weeks with median >= 50% of peak median

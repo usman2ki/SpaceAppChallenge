@@ -1,0 +1,103 @@
+{
+  "experiment": "sensitivity",
+  "generated_at": "2026-10-25T00:00:19Z",
+  "app_version": "0.1.0",
+  "method_version": "ember-method-1.0.0",
+  "seconds": 95.9,
+  "summary": {
+    "data_origin": "synthetic",
+    "reference": "Aqua",
+    "source": "Suomi-NPP",
+    "rows": [
+      {
+        "setting": "default (18 km, week, nominal+, coverage exposure)",
+        "mode": "exposure",
+        "paired_units": 46737,
+        "mean_ratio": 3.1597536282881973,
+        "baseline_landcover": "savanna",
+        "harmonic_order": 1,
+        "dispersion_window": 1.149070968208129,
+        "temporal_week_deviance": 1.5121597236876738,
+        "temporal_week_deviance_global_ratio": 2.0372840086255315
+      },
+      {
+        "setting": "grid 9 km",
+        "mode": "exposure",
+        "paired_units": 88184,
+        "mean_ratio": 3.159753628330511,
+        "baseline_landcover": "savanna",
+        "harmonic_order": 1,
+        "dispersion_window": 1.1490709681901004,
+        "temporal_week_deviance": 1.5121597236470905,
+        "temporal_week_deviance_global_ratio": 2.037284008625533
+      },
+      {
+        "setting": "grid 36 km",
+        "mode": "exposure",
+        "paired_units": 20374,
+        "mean_ratio": 3.256040548307975,
+        "baseline_landcover": "savanna",
+        "harmonic_order": 1,
+        "dispersion_window": 1.1504958434084003,
+        "temporal_week_deviance": 1.502479623708427,
+        "temporal_week_deviance_global_ratio": 2.037284008625533
+      },
+      {
+        "setting": "grid 72 km",
+        "mode": "exposure",
+        "paired_units": 7452,
+        "mean_ratio": 3.3385938342783477,
+        "baseline_landcover": "savanna",
+        "harmonic_order": 1,
+        "dispersion_window": 1.1522399652301627,
+        "temporal_week_deviance": 1.5045475993440447,
+        "temporal_week_deviance_global_ratio": 2.031817365734565
+      },
+      {
+        "setting": "calibration window: day",
+        "mode": "exposure",
+        "paired_units": 106108,
+        "mean_ratio": 3.156114725474853,
+        "baseline_landcover": "savanna",
+        "harmonic_order": 1,
+        "dispersion_window": 1.0743823840577507,
+        "temporal_week_deviance": 1.4023488181532993,
+        "temporal_week_deviance_global_ratio": 1.452411827768935
+      },
+      {
+        "setting": "min confidence low",
+        "mode": "exposure",
+        "paired_units": 48658,
+        "mean_ratio": 2.898966936727906,
+        "baseline_landcover": "savanna",
+        "harmonic_order": 1,
+        "dispersion_window": 1.172919166343709,
+        "temporal_week_deviance": 1.5543333783373476,
+        "temporal_week_deviance_global_ratio": 2.234516810613837
+      },
+      {
+        "setting": "min confidence high",
+        "mode": "exposure",
+        "paired_units": 16517,
+        "mean_ratio": 1.1858768206416648,
+        "baseline_landcover": "savanna",
+        "harmonic_order": 1,
+        "dispersion_window": 1.0327553304977835,
+        "temporal_week_deviance": 2.1111156320395548,
+        "temporal_week_deviance_global_ratio": 2.131208707778955
+      },
+      {
+        "setting": "coverage ignored (hotspot-only assumption)",
+        "mode": "hotspot_only",
+        "paired_units": 46737,
+        "mean_ratio": 3.675751545255328,
+        "baseline_landcover": "savanna",
+        "harmonic_order": 1,
+        "dispersion_window": 1.9431379746629347,
+        "temporal_week_deviance": 2.572489868782485,
+        "temporal_week_deviance_global_ratio": 2.986139974594072
+      }
+    ],
+    "reading": "Mean ratio = source detections per reference detection for the baseline land-cover class, averaged over the year. Deviance columns: held-out (leave-one-year-out) mean Poisson deviance of AOI-week reference totals; lower is better. Deviances are only comparable within the same grid/quality setting family because the target counts change."
+  }
+}

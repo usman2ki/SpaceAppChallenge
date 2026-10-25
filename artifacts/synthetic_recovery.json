@@ -1,0 +1,452 @@
+{
+  "experiment": "synthetic_recovery",
+  "generated_at": "2026-10-24T23:58:41Z",
+  "app_version": "0.1.0",
+  "method_version": "ember-method-1.0.0",
+  "method_fingerprint": "19f09ad1134cfb29",
+  "data_origin": "synthetic",
+  "world": {
+    "seed": 20261025,
+    "bbox": [
+      -48.5,
+      -11.5,
+      -45.5,
+      -9.0
+    ],
+    "period": [
+      "2010-01-01",
+      "2022-12-31"
+    ],
+    "platform_windows": {
+      "Terra": [
+        "2010-01-01",
+        "2022-12-31"
+      ],
+      "Aqua": [
+        "2010-01-01",
+        "2021-06-30"
+      ],
+      "Suomi-NPP": [
+        "2013-01-01",
+        "2022-12-31"
+      ],
+      "NOAA-20": [
+        "2018-04-01",
+        "2022-12-31"
+      ]
+    },
+    "true_log_ratio_vs_aqua": {
+      "Aqua": 0.0,
+      "Terra": -0.4307829160924542,
+      "Suomi-NPP": 1.0986122886681098,
+      "NOAA-20": 1.047318994280559
+    },
+    "seasonal_ratio_amplitude": {
+      "Aqua": 0.0,
+      "Terra": 0.1,
+      "Suomi-NPP": 0.25,
+      "NOAA-20": 0.25
+    },
+    "landcover_ratio_shift_viirs": {
+      "savanna": 0.0,
+      "grassland": 0.0,
+      "cropland": 0.3,
+      "forest": -0.1
+    },
+    "injected_excess_episode": {
+      "year": 2019,
+      "doy": [
+        213,
+        250
+      ],
+      "factor": 8.0,
+      "quadrant": "S"
+    },
+    "injected_deficit_episode": {
+      "year": 2016,
+      "doy": [
+        200,
+        270
+      ],
+      "factor": 0.15
+    },
+    "terra_outage": [
+      "2015-03-01",
+      "2015-03-20"
+    ],
+    "static_source": [
+      -10.7,
+      -47.7
+    ],
+    "detections_by_platform": {
+      "Terra": 47084,
+      "Aqua": 56153,
+      "Suomi-NPP": 234332,
+      "NOAA-20": 117180
+    }
+  },
+  "bootstrap_reps": 100,
+  "seconds": 119.6,
+  "summary": {
+    "seed": 20261025,
+    "quick": false,
+    "aoi": "inner cells of the synthetic bbox",
+    "parameters": [
+      {
+        "name": "annual-mean log ratio, savanna",
+        "truth": 1.174895481239998,
+        "estimate": 1.1422199816551097,
+        "lo": 1.1191223779806443,
+        "hi": 1.17004388097323,
+        "inside": false
+      },
+      {
+        "name": "annual-mean log ratio, grassland",
+        "truth": 1.174895481239998,
+        "estimate": 1.1742480767204104,
+        "lo": 1.1409475930780069,
+        "hi": 1.2084272161305278,
+        "inside": true
+      },
+      {
+        "name": "annual-mean log ratio, cropland",
+        "truth": 1.4748954812399984,
+        "estimate": 1.4658575792179933,
+        "lo": 1.437484535450026,
+        "hi": 1.4971419026967108,
+        "inside": true
+      },
+      {
+        "name": "annual-mean log ratio, forest",
+        "truth": 1.074895481239998,
+        "estimate": 1.0829058973764756,
+        "lo": 1.041306577437719,
+        "hi": 1.1351903235317145,
+        "inside": true
+      },
+      {
+        "name": "seasonal amplitude of log ratio",
+        "truth": 0.25,
+        "estimate": 0.2818598477524567,
+        "lo": 0.25088673416197294,
+        "hi": 0.30893710962834137,
+        "inside": false
+      },
+      {
+        "name": "day of year of peak ratio",
+        "truth": 245.0,
+        "estimate": 247.91877846926468,
+        "lo": 244.21578009036412,
+        "hi": 251.7736192927348,
+        "inside": true
+      }
+    ],
+    "transfer": {
+      "period": [
+        "2021-07-02",
+        "2022-12-24"
+      ],
+      "weeks": 78,
+      "relative_bias": -0.016856022924787623,
+      "mae": 5.481555295124632,
+      "interval_coverage_truth": 0.8717948717948718,
+      "naive_splice_relative_bias": 2.374115551305987,
+      "truth_definition": "Aqua-equivalent quality-filtered detections at nominal looks (2 per day)"
+    },
+    "hotspot_only": {
+      "params": [
+        {
+          "name": "annual-mean log ratio, savanna",
+          "truth": null,
+          "estimate": 1.2928595766616473,
+          "lo": 1.2690405703805645,
+          "hi": 1.323517790563426,
+          "inside": null
+        },
+        {
+          "name": "annual-mean log ratio, grassland",
+          "truth": null,
+          "estimate": 1.3277043918011153,
+          "lo": 1.2940780071228573,
+          "hi": 1.3608866787587572,
+          "inside": null
+        },
+        {
+          "name": "annual-mean log ratio, cropland",
+          "truth": null,
+          "estimate": 1.6182791341444411,
+          "lo": 1.591483227106873,
+          "hi": 1.6496600481679091,
+          "inside": null
+        },
+        {
+          "name": "annual-mean log ratio, forest",
+          "truth": null,
+          "estimate": 1.2380471797466932,
+          "lo": 1.2009941932587775,
+          "hi": 1.2910246661830722,
+          "inside": null
+        },
+        {
+          "name": "seasonal amplitude of log ratio",
+          "truth": 0.25,
+          "estimate": 0.2680362970885929,
+          "lo": 0.23525573080244847,
+          "hi": 0.29472036656470485,
+          "inside": true
+        },
+        {
+          "name": "day of year of peak ratio",
+          "truth": 245.0,
+          "estimate": 242.80416713264054,
+          "lo": 238.22863071909856,
+          "hi": 246.7462742071202,
+          "inside": true
+        }
+      ],
+      "transfer": {
+        "period": [
+          "2021-07-02",
+          "2022-12-24"
+        ],
+        "weeks": 78,
+        "relative_bias": -0.011829282738067257,
+        "mae": 6.657506126713366,
+        "interval_coverage_truth": 0.782051282051282,
+        "naive_splice_relative_bias": 3.87034191920175,
+        "truth_definition": "expected Aqua quality-filtered detections under Aqua's counterfactual coverage"
+      }
+    },
+    "anomaly_detection": {
+      "excess": {
+        "injected": {
+          "year": 2019,
+          "doy": [
+            213,
+            250
+          ],
+          "factor": 8.0,
+          "area": "S"
+        },
+        "weeks_in_episode": 6,
+        "weeks_flagged_in_episode": 1,
+        "weeks_flagged_outside_episode": 0,
+        "n_tests": 130
+      },
+      "deficit": {
+        "injected": {
+          "year": 2016,
+          "doy": [
+            200,
+            270
+          ],
+          "factor": 0.15,
+          "area": "all"
+        },
+        "weeks_in_episode": 11,
+        "weeks_flagged_in_episode": 6,
+        "weeks_flagged_outside_episode": 4,
+        "n_tests": 130
+      }
+    },
+    "note": "SYNTHETIC recovery experiment: tests the method against a known generative truth. It is not evidence about real sensors."
+  },
+  "details": {
+    "exposure": {
+      "order": 1,
+      "params": [
+        {
+          "name": "annual-mean log ratio, savanna",
+          "truth": 1.174895481239998,
+          "estimate": 1.1422199816551097,
+          "lo": 1.1191223779806443,
+          "hi": 1.17004388097323,
+          "inside": false
+        },
+        {
+          "name": "annual-mean log ratio, grassland",
+          "truth": 1.174895481239998,
+          "estimate": 1.1742480767204104,
+          "lo": 1.1409475930780069,
+          "hi": 1.2084272161305278,
+          "inside": true
+        },
+        {
+          "name": "annual-mean log ratio, cropland",
+          "truth": 1.4748954812399984,
+          "estimate": 1.4658575792179933,
+          "lo": 1.437484535450026,
+          "hi": 1.4971419026967108,
+          "inside": true
+        },
+        {
+          "name": "annual-mean log ratio, forest",
+          "truth": 1.074895481239998,
+          "estimate": 1.0829058973764756,
+          "lo": 1.041306577437719,
+          "hi": 1.1351903235317145,
+          "inside": true
+        },
+        {
+          "name": "seasonal amplitude of log ratio",
+          "truth": 0.25,
+          "estimate": 0.2818598477524567,
+          "lo": 0.25088673416197294,
+          "hi": 0.30893710962834137,
+          "inside": false
+        },
+        {
+          "name": "day of year of peak ratio",
+          "truth": 245.0,
+          "estimate": 247.91877846926468,
+          "lo": 244.21578009036412,
+          "hi": 251.7736192927348,
+          "inside": true
+        }
+      ],
+      "transfer": {
+        "period": [
+          "2021-07-02",
+          "2022-12-24"
+        ],
+        "weeks": 78,
+        "relative_bias": -0.016856022924787623,
+        "mae": 5.481555295124632,
+        "interval_coverage_truth": 0.8717948717948718,
+        "naive_splice_relative_bias": 2.374115551305987,
+        "truth_definition": "Aqua-equivalent quality-filtered detections at nominal looks (2 per day)"
+      },
+      "pair": {
+        "reference": "Aqua",
+        "source": "Suomi-NPP",
+        "mode": "exposure",
+        "calibration_window": "week",
+        "grid_km": 18,
+        "overlap_start": "2013-01-01",
+        "overlap_end": "2021-06-18",
+        "overlap_years": [
+          2013,
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021
+        ],
+        "n_units": 105840,
+        "n_paired_active_units": 37870,
+        "total_ref": 28176,
+        "total_src": 137431,
+        "n_spatial_blocks": 20,
+        "units_dropped_unknown_coverage": 0,
+        "landcover": [
+          "cropland",
+          "forest",
+          "grassland",
+          "savanna"
+        ]
+      },
+      "status": "not_evaluated"
+    },
+    "hotspot_only": {
+      "order": 1,
+      "params": [
+        {
+          "name": "annual-mean log ratio, savanna",
+          "truth": null,
+          "estimate": 1.2928595766616473,
+          "lo": 1.2690405703805645,
+          "hi": 1.323517790563426,
+          "inside": null
+        },
+        {
+          "name": "annual-mean log ratio, grassland",
+          "truth": null,
+          "estimate": 1.3277043918011153,
+          "lo": 1.2940780071228573,
+          "hi": 1.3608866787587572,
+          "inside": null
+        },
+        {
+          "name": "annual-mean log ratio, cropland",
+          "truth": null,
+          "estimate": 1.6182791341444411,
+          "lo": 1.591483227106873,
+          "hi": 1.6496600481679091,
+          "inside": null
+        },
+        {
+          "name": "annual-mean log ratio, forest",
+          "truth": null,
+          "estimate": 1.2380471797466932,
+          "lo": 1.2009941932587775,
+          "hi": 1.2910246661830722,
+          "inside": null
+        },
+        {
+          "name": "seasonal amplitude of log ratio",
+          "truth": 0.25,
+          "estimate": 0.2680362970885929,
+          "lo": 0.23525573080244847,
+          "hi": 0.29472036656470485,
+          "inside": true
+        },
+        {
+          "name": "day of year of peak ratio",
+          "truth": 245.0,
+          "estimate": 242.80416713264054,
+          "lo": 238.22863071909856,
+          "hi": 246.7462742071202,
+          "inside": true
+        }
+      ],
+      "transfer": {
+        "period": [
+          "2021-07-02",
+          "2022-12-24"
+        ],
+        "weeks": 78,
+        "relative_bias": -0.011829282738067257,
+        "mae": 6.657506126713366,
+        "interval_coverage_truth": 0.782051282051282,
+        "naive_splice_relative_bias": 3.87034191920175,
+        "truth_definition": "expected Aqua quality-filtered detections under Aqua's counterfactual coverage"
+      },
+      "pair": {
+        "reference": "Aqua",
+        "source": "Suomi-NPP",
+        "mode": "hotspot_only",
+        "calibration_window": "week",
+        "grid_km": 18,
+        "overlap_start": "2013-01-01",
+        "overlap_end": "2021-06-18",
+        "overlap_years": [
+          2013,
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021
+        ],
+        "n_units": 105840,
+        "n_paired_active_units": 37870,
+        "total_ref": 28176,
+        "total_src": 137431,
+        "n_spatial_blocks": 20,
+        "units_dropped_unknown_coverage": 0,
+        "landcover": [
+          "cropland",
+          "forest",
+          "grassland",
+          "savanna"
+        ]
+      },
+      "status": "not_evaluated"
+    }
+  }
+}
